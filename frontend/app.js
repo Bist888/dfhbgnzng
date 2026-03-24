@@ -6,7 +6,7 @@ async function api(path, options = {}) {
     headers: { 'Content-Type': 'application/json' },
     ...options,
   });
-  // Для 204 No Content тела нет
+
   if (res.status === 204) return null;
   const data = await res.json();
   if (!res.ok) throw new Error(data.detail || 'Ошибка сервера');
