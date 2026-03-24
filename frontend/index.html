@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FastAPI Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="page-title">FastAPI Demo</h1>
+
+  <div class="grid">
+
+    <!-- ══ Пользователи ══════════════════════════════════════ -->
+    <section class="card">
+      <h2>👤 Пользователи <code>GET /api/users</code></h2>
+
+      <ul id="users-list" class="list">
+        <li class="placeholder">Загрузка…</li>
+      </ul>
+
+      <form id="users-form" class="form">
+        <input id="user-input" class="input" type="text" placeholder="Имя нового пользователя" />
+        <button class="btn" type="submit">Добавить</button>
+      </form>
+      <p id="users-error" class="error"></p>
+    </section>
+
+    <!-- ══ Заметки ══════════════════════════════════════════ -->
+    <section class="card">
+      <h2>📝 Заметки <code>GET /api/notes</code></h2>
+
+      <ul id="notes-list" class="list">
+        <li class="placeholder">Загрузка…</li>
+      </ul>
+
+      <form id="notes-form" class="form">
+        <input id="note-input" class="input" type="text" placeholder="Текст новой заметки" />
+        <button class="btn" type="submit">Добавить</button>
+      </form>
+      <p id="notes-error" class="error"></p>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
