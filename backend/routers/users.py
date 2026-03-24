@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 router = APIRouter(prefix="/users", tags=["users"])
 
-# "База" — просто список в памяти
 db: list[dict] = [
     {"id": 1, "name": "Alice"},
     {"id": 2, "name": "Bob"},
