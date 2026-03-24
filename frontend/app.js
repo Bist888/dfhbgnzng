@@ -1,6 +1,6 @@
 const API = 'http://localhost:8000/api';
 
-// ── универсальный fetch-хелпер ────────────────────────────────
+
 async function api(path, options = {}) {
   const res = await fetch(API + path, {
     headers: { 'Content-Type': 'application/json' },
@@ -13,9 +13,7 @@ async function api(path, options = {}) {
   return data;
 }
 
-// ════════════════════════════════════════════════════════════════
-// ПОЛЬЗОВАТЕЛИ
-// ════════════════════════════════════════════════════════════════
+
 const usersList  = document.getElementById('users-list');
 const usersForm  = document.getElementById('users-form');
 const userInput  = document.getElementById('user-input');
@@ -30,7 +28,7 @@ async function loadUsers() {
     const span = document.createElement('span');
     span.textContent = `#${id} — ${name}`;
 
-    // Кнопка удаления — DELETE /api/users/{id}
+    
     const del = document.createElement('button');
     del.className = 'del-btn';
     del.textContent = '✕';
@@ -49,7 +47,7 @@ usersForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   usersError.textContent = '';
   try {
-    // POST /api/users/ с JSON-телом
+  
     await api('/users/', {
       method: 'POST',
       body: JSON.stringify({ name: userInput.value }),
@@ -61,9 +59,7 @@ usersForm.addEventListener('submit', async (e) => {
   }
 });
 
-// ════════════════════════════════════════════════════════════════
-// ЗАМЕТКИ
-// ════════════════════════════════════════════════════════════════
+
 const notesList  = document.getElementById('notes-list');
 const notesForm  = document.getElementById('notes-form');
 const noteInput  = document.getElementById('note-input');
@@ -78,7 +74,7 @@ async function loadNotes() {
     const span = document.createElement('span');
     span.textContent = text;
 
-    // Кнопка удаления — DELETE /api/notes/{id}
+
     const del = document.createElement('button');
     del.className   = 'del-btn';
     del.textContent = '✕';
@@ -108,6 +104,6 @@ notesForm.addEventListener('submit', async (e) => {
   }
 });
 
-// ── Загрузить оба раздела при старте ─────────────────────────
+
 loadUsers();
 loadNotes();
